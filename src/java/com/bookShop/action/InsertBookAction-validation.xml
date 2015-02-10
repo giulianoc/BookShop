@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE validators PUBLIC '-//Apache Struts//XWork Validator Rules Configuration 1.0.3//EN' 'http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd'>
+
+<validators>
+    <field name="bookName">
+        <field-validator type="requiredstring">
+            <message>Please enter the Book Name</message>
+        </field-validator>
+    </field>
+
+    <field name="publisherName">
+        <field-validator type="requiredstring">
+            <message>Please enter the Publisher Name</message>
+        </field-validator>
+    </field>
+
+    <field name="category">
+        <field-validator type="requiredstring">
+            <message>Please enter the Category Name</message>
+        </field-validator>
+    </field>
+
+    <field name="isbn">
+        <field-validator type="requiredstring">
+            <message>Please enter the Book ISBN</message>
+        </field-validator>
+    </field>
+
+    <field name="edition">
+        <field-validator type="requiredstring">
+            <message>Please enter the Edition of the book</message>
+        </field-validator>
+    </field>
+
+    <field name="year">
+        <field-validator type="required" short-circuit="true">
+            <message>Please enter the year when the book was published</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <message>Enter a numeric value</message>
+        </field-validator>
+    </field>
+
+    <field name="firstAuthor">
+        <field-validator type="requiredstring">
+            <message>Please enter the name of the first author</message>
+        </field-validator>
+    </field>
+
+    <field name="synopsis">
+        <field-validator type="requiredstring">
+            <message>Please enter the synopsis of the book</message>
+        </field-validator>
+    </field>
+
+    <field name="aboutAuthors">
+        <field-validator type="requiredstring">
+            <message>Please enter the about the authors details</message>
+        </field-validator>
+    </field>
+
+</validators>

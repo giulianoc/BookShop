@@ -1,0 +1,57 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 7, 2015, 10:58:45 AM
+    Author     : giuliano
+*/
+
+.menu {
+    border: 2px solid #990066;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.menu:hover {
+    border: 2px solid #330066;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    background-color: #FFE1E1;
+}
+
+.mandatory {
+    font-weight: bold;
+    font-size: 13px;
+    color: #0099ff;
+    font-family: "Trebuchet MS";
+}
+
+.Arial13GrayN {
+    font-family: "Arial", Times, serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #666666;
+}
+
+.Arial13GrayB {
+    font-family: "Arial", Times, serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #666666;
+}
+
+.treb13blacknormal {
+    font-weight: normal;
+    font-size: 13px;
+    color: #333333;
+    font-family: "Trebuchet MS";
+    text-decoration: none;
+}
+
+.Arial13BrownB {
+    font-family: "Arial", Times, serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #990000;
+}
+
