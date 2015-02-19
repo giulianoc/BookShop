@@ -1,5 +1,4 @@
 
-build
-dist
+target
 
 .DS_Store

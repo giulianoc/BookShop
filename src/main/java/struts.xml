@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE struts PUBLIC '-//Apache Software Foundation//DTD Commons Validator Rules Configuration 2.3//EN' 'http://struts.apache.org/dtds/struts-2.3.dtd'>
+
+<struts>
+    <package name="bookshop" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="loginInterceptor"
+                class="com.bookshop.interceptor.AuthenticationInterceptor" />
+                <interceptor-stack name="myStack">
+                    <interceptor-ref name="defaultStack" />
+                    <interceptor-ref name="loginInterceptor" />
+                </interceptor-stack>
+        </interceptors>
+        
+        <global-results>
+            <result name="loginAction" type="redirectAction">index</result>
+        </global-results>
+        
+        <action name="index">
+            <result>/bookshop/login.jsp</result>
+        </action>
+        
+        <action name="doLogin" class="com.bookshop.action.LoginAction">
+            <result name="success" type="redirectAction">showSearchBooks</result>
+            <result name="error">/bookshop/login.jsp</result>
+            <result name="input">/bookshop/login.jsp</result>
+        </action>
+        
+        <action name="showSearchBooks">
+            <interceptor-ref name="myStack" />
+            <result>/bookshop/searchBooks.jsp</result>
+        </action>
+
+        <action name="doSearchBooks" class="com.bookshop.action.SearchBooksAction">
+            <interceptor-ref name="myStack" />
+            <result name="success">/bookshop/searchBooks.jsp</result>
+            <result name="input">/bookshop/searchBooks.jsp</result>
+        </action>
+
+        <action name="doLogout" class="com.bookshop.action.LogOffAction">
+            <result type="redirectAction">index</result>
+        </action>
+        
+        <action name="doInsertBooks" class="com.bookshop.action.InsertBookAction">
+            <interceptor-ref name="myStack" />
+            <result name="success">/bookshop/manageBooks.jsp</result>
+            <result name="input">/bookshop/addBooks.jsp</result>
+        </action>
+        
+        <action name="showAddBooks">
+            <interceptor-ref name="myStack" />
+            <result type="redirect">/bookshop/addBooks.jsp</result>
+        </action>
+
+        <action name="showManageBooks">
+            <interceptor-ref name="myStack" />
+            <result>/bookshop/manageBooks.jsp</result>
+        </action>
+        
+        <action name="doManageSearchBooks" class="com.bookshop.action.ManageSearchBooksAction">
+            <interceptor-ref name="myStack" />
+            <result name="success">/bookshop/manageBooks.jsp</result>
+        </action>
+
+        <action name="showEditBooks" class="com.bookshop.action.EditBookAction">
+            <interceptor-ref name="myStack" />
+            <result name="success">/bookshop/updateBooks.jsp</result>
+        </action>
+        
+        <action name="doUpdateBooks" class="com.bookshop.action.UpdateBookAction">
+            <interceptor-ref name="myStack" />
+            <result name="success">/bookshop/manageBooks.jsp</result>
+            <result name="input">/bookshop/updateBooks.jsp</result>
+        </action>
+
+        <action name="doDeleteBooks" class="com.bookshop.action.DeleteBookAction">
+            <interceptor-ref name="myStack" />
+            <result name="success">/bookshop/manageBooks.jsp</result>
+        </action>
+
+    </package>
+</struts>
