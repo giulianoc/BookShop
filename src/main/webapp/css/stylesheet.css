@@ -55,3 +55,16 @@ and open the template in the editor.
     color: #990000;
 }
 
+.autocomplete-suggestions {
+    background-color: white;
+    border: 1px solid black;
+    overflow: auto;
+}
+
+.autocomplete-suggestion {
+    margin: 2px;
+}
+
+.autocomplete-suggestion.autocomplete-selected {
+    background-color: lightblue;
+}

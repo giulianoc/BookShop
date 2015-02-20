@@ -86,4 +86,14 @@ and open the template in the editor.
         </action>
 
     </package>
+    
+    <package name="default" extends="json-default">
+
+        <action name="ajaxAutoComplete" class="com.bookshop.action.SearchBooksAction">
+            <result name="success" type="json" />
+            <result name="input">/bookshop/searchBooks.jsp</result>
+        </action>
+
+    </package>
+
 </struts>

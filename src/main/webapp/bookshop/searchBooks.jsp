@@ -11,9 +11,48 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="/BookShop/css/stylesheet.css" type="text/css" rel="stylesheet">
+
+        <script src="/BookShop/js/jquery-1.11.2.min.js"></script>
+        <!-- <link href="/BookShop/js/jQuery-Autocomplete-master/content/styles.css" type="text/css" rel="stylesheet"> -->
+        <script src="/BookShop/js/jQuery-Autocomplete-master/dist/jquery.autocomplete.js"></script>
+
         <title>BookShop - Search Books</title>
     </head>
     <body>
+        <script type="text/javascript">
+            $(function(){
+                var countries = [
+                    { value: 'Andorra', data: 'AD' },
+                    // ...
+                    { value: 'Zimbabwe', data: 'ZZ' }
+                 ];
+
+                $('#search').autocomplete({
+                    // lookup: countries,
+                    serviceUrl: '/BookShop/ajaxAutoComplete.action',
+
+                    paramName: 'searchCriteria',
+                    dataType: 'json',
+                    minChars: 3,
+                    transformResult: function(response) {
+                       var autoCompleteInfo = {
+                            suggestions: $.map(response.books, function(dataItem) {
+                               return { value: dataItem.bookName, data: dataItem.bookName };
+                            })
+                        };
+                        
+                        return autoCompleteInfo;
+                    }
+
+                    /*
+                    onSelect: function (suggestion) {
+                        alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+                    }
+                    */
+                });
+            });
+        </script>
+        
         <jsp:include page="header.jsp" />
 
         <form action="doSearchBooks" method="post" style="text-align: center">
